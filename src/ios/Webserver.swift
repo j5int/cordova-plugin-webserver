@@ -114,6 +114,8 @@
     @objc(sendResponse:)
     func sendResponse(_ command: CDVInvokedUrlCommand) {
         self.responses[command.argument(at: 0) as! String] = command.argument(at: 1)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
+        self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
     }
 
     @objc(start:)
