@@ -99,12 +99,10 @@
                 self.commandDelegate!.send(CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "No matching request"), callbackId: command.callbackId)
                 return
             }
-
-
+    
+            // We got the dict so put information in the response
             let request = self.requests[requestUUID]?.0 as! GCDWebServerRequest
             let completionBlock = self.requests[requestUUID]?.1 as! GCDWebServerCompletionBlock
-
-            // We got the dict so put information in the response
             let responseDict = command.argument(at: 1) as! Dictionary<AnyHashable, Any>
 
             // Check if a file path is provided else use regular data response
