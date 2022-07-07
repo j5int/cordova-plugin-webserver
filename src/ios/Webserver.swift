@@ -18,7 +18,7 @@
         var body = ""
 
         if dataRequest.hasBody() {
-            body = String(data: dataRequest.data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
+            body = dataRequest.data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)) ?? ""
         }
 
         return [
@@ -27,7 +27,8 @@
             "headers": dataRequest.headers,
             "method": dataRequest.method,
             "path": dataRequest.url.path,
-            "query": dataRequest.url.query ?? ""
+            "query": dataRequest.url.query ?? "",
+            "bodyIsBase64": true // we only implement this for iOS so this way we can check if it is actually base64
         ]
     }
 
