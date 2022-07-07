@@ -18,7 +18,7 @@
         var body = ""
 
         if dataRequest.hasBody() {
-            body = dataRequest.data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)) ?? ""
+            body = dataRequest.data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         }
 
         return [
@@ -99,7 +99,7 @@
                 self.commandDelegate!.send(CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "No matching request"), callbackId: command.callbackId)
                 return
             }
-    
+
             // We got the dict so put information in the response
             let request = self.requests[requestUUID]?.0 as! GCDWebServerRequest
             let completionBlock = self.requests[requestUUID]?.1 as! GCDWebServerCompletionBlock
