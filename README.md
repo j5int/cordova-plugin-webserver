@@ -1,3 +1,8 @@
+# Releases
+1.1.0-j5.1
+- Fixed missing javascript plugin callback when sending server respond
+
+
 # cordova-plugin-webserver
 *A webserver plugin for cordova*
 
