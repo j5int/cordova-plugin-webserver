@@ -26,7 +26,7 @@
             "body": body,
             "headers": dataRequest.headers,
             "method": dataRequest.method,
-            "path": dataRequest.url.path,
+            "path": dataRequest.path,
             "query": dataRequest.url.query ?? "",
             "bodyIsBase64": true // we only implement this for iOS so this way we can check if it is actually base64
         ]
