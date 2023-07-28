@@ -45,7 +45,7 @@
         <source url="https://github.com/CocoaPods/Specs.git"/>
       </config>
       <pods use-frameworks="true">
-        <pod name="GCDWebServer" spec="~> 3.5.2"/>
+        <pod name="GCDWebServer" spec="https://github.com/readium/GCDWebServer.git"/>
       </pods>
     </podspec>
     
