@@ -61,10 +61,13 @@
 
         // Do a call to the onRequestCommand to inform the JS plugin
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: requestDict)
-        pluginResult?.setKeepCallbackAs(true)
+        pluginResult.setKeepCallbackAs(true)
+        guard let command = self.onRequestCommand else {
+            return
+        }
         self.commandDelegate.send(
             pluginResult,
-            callbackId: self.onRequestCommand?.callbackId
+            callbackId: command.callbackId
         )
     }
 
@@ -72,10 +75,10 @@
     func onRequest(_ command: CDVInvokedUrlCommand) {
         self.onRequestCommand = command
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_NO_RESULT)
-        pluginResult?.setKeepCallbackAs(true)
+        pluginResult.setKeepCallbackAs(true)
         self.commandDelegate.send(
             pluginResult,
-            callbackId: self.onRequestCommand?.callbackId
+            callbackId: command.callbackId
         )
     }
 
